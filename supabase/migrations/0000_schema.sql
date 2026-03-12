@@ -47,9 +47,6 @@ create table public.documents (
 -- RLS Documents
 alter table public.documents enable row level security;
 create policy "Users can view their own documents" on public.documents for select using (auth.uid() = user_id);
-create policy "Translators can view assigned documents" on public.documents for select using (
-  exists (select order_id from translation_orders where translation_orders.document_id = public.documents.id and translator_id = auth.uid())
-);
 create policy "Users can insert documents" on public.documents for insert with check (auth.uid() = user_id);
 
 -- TRANSLATION ORDERS TABLE
@@ -77,6 +74,10 @@ create policy "Clients can view own orders" on public.translation_orders for sel
 create policy "Translators can view assigned orders" on public.translation_orders for select using (auth.uid() = translator_id);
 create policy "Admins can manage all orders" on public.translation_orders for all using (
   exists (select 1 from public.users where id = auth.uid() and role = 'admin')
+);
+
+create policy "Translators can view assigned documents" on public.documents for select using (
+  exists (select order_id from translation_orders where translation_orders.document_id = public.documents.id and translator_id = auth.uid())
 );
 
 -- PAYMENTS TABLE
