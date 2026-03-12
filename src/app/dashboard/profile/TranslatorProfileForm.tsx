@@ -20,11 +20,11 @@ export default function TranslatorProfileForm({ initialData }: { initialData: an
             if (res.error) {
                 setMessage(res.error)
             } else {
-                setMessage('Profile updated successfully.')
+                setMessage('Profil mis à jour avec succès.')
             }
         } catch (err) {
             console.error(err)
-            setMessage('An error occurred.')
+            setMessage('Une erreur est survenue.')
         } finally {
             setIsPending(false)
         }
@@ -71,7 +71,7 @@ export default function TranslatorProfileForm({ initialData }: { initialData: an
             )}
 
             <Button type="submit" disabled={isPending}>
-                {isPending ? 'Saving...' : 'Save Credentials'}
+                {isPending ? 'Enregistrement...' : 'Enregistrer les Informations'}
             </Button>
         </form>
     )

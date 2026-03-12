@@ -33,26 +33,26 @@ export default async function DashboardLayout({
                 <div className="space-y-4 flex-1">
                     <div className="py-2">
                         <h2 className="mb-2 px-4 text-xs font-semibold tracking-tight text-muted-foreground uppercase">
-                            Dashboard
+                            Tableau de bord
                         </h2>
                         <div className="space-y-1">
                             <Button variant="ghost" className="w-full justify-start" asChild>
                                 <Link href="/dashboard">
                                     <LayoutDashboard className="mr-2 h-4 w-4" />
-                                    Overview
+                                    Aperçu
                                 </Link>
                             </Button>
                             <Button variant="ghost" className="w-full justify-start" asChild>
                                 <Link href="/dashboard/orders">
                                     <FileText className="mr-2 h-4 w-4" />
-                                    {role === 'translator' ? 'My Missions' : 'My Orders'}
+                                    {role === 'translator' ? 'Mes Missions' : 'Mes Commandes'}
                                 </Link>
                             </Button>
                             {role === 'translator' && (
                                 <Button variant="ghost" className="w-full justify-start" asChild>
                                     <Link href="/dashboard/available-missions">
                                         <FileText className="mr-2 h-4 w-4" />
-                                        Available Missions
+                                        Missions Disponibles
                                     </Link>
                                 </Button>
                             )}
@@ -61,13 +61,13 @@ export default async function DashboardLayout({
                                     <Button variant="ghost" className="w-full justify-start" asChild>
                                         <Link href="/dashboard/admin/translators">
                                             <FileText className="mr-2 h-4 w-4" />
-                                            Manage Translators
+                                            Gérer les Traducteurs
                                         </Link>
                                     </Button>
                                     <Button variant="ghost" className="w-full justify-start" asChild>
                                         <Link href="/dashboard/admin/orders">
                                             <FileText className="mr-2 h-4 w-4" />
-                                            Manage Orders
+                                            Gérer les Commandes
                                         </Link>
                                     </Button>
                                 </>
@@ -77,13 +77,13 @@ export default async function DashboardLayout({
 
                     <div className="py-2">
                         <h2 className="mb-2 px-4 text-xs font-semibold tracking-tight text-muted-foreground uppercase">
-                            Account
+                            Compte
                         </h2>
                         <div className="space-y-1">
                             <Button variant="ghost" className="w-full justify-start" asChild>
                                 <Link href="/dashboard/profile">
                                     <Settings className="mr-2 h-4 w-4" />
-                                    Settings
+                                    Paramètres
                                 </Link>
                             </Button>
                         </div>
@@ -94,7 +94,7 @@ export default async function DashboardLayout({
                     <form action={signOut}>
                         <Button variant="ghost" className="w-full justify-start text-destructive hover:text-destructive hover:bg-destructive/10" type="submit">
                             <LogOut className="mr-2 h-4 w-4" />
-                            Sign Out
+                            Déconnexion
                         </Button>
                     </form>
                 </div>

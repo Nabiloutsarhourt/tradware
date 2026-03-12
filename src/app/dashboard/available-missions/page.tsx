@@ -41,9 +41,9 @@ export default async function AvailableMissionsPage() {
     return (
         <div className="space-y-6">
             <div>
-                <h1 className="text-3xl font-bold tracking-tight">Available Missions</h1>
+                <h1 className="text-3xl font-bold tracking-tight">Missions Disponibles</h1>
                 <p className="text-muted-foreground">
-                    Browse and accept translation requests from clients.
+                    Parcourez et acceptez les demandes de traduction des clients.
                 </p>
             </div>
 
@@ -51,7 +51,7 @@ export default async function AvailableMissionsPage() {
                 {availableMissions.length === 0 ? (
                     <Card className="col-span-full">
                         <CardContent className="py-10 text-center">
-                            <p className="text-muted-foreground">No missions available at the moment.</p>
+                            <p className="text-muted-foreground">Aucune mission disponible pour le moment.</p>
                         </CardContent>
                     </Card>
                 ) : (
@@ -76,14 +76,14 @@ export default async function AvailableMissionsPage() {
                                             <p className="text-sm text-muted-foreground">{mission.documents?.page_count}</p>
                                         </div>
                                         <div className="text-right">
-                                            <p className="text-sm font-medium">Payout</p>
-                                            <p className="text-lg font-bold text-primary">€{mission.price}</p>
+                                            <p className="text-sm font-medium">Gain estimé</p>
+                                            <p className="text-lg font-bold text-primary">{mission.price} €</p>
                                         </div>
                                     </div>
                                     <form action={claimMission}>
                                         <input type="hidden" name="orderId" value={mission.id} />
                                         <Button type="submit" className="w-full">
-                                            Claim Mission
+                                            Accepter la Mission
                                         </Button>
                                     </form>
                                 </div>

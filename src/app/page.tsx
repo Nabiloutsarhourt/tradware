@@ -9,19 +9,19 @@ export default function Home() {
       <section className="relative px-6 py-24 sm:py-32 lg:px-8 bg-gradient-to-b from-primary/5 via-background to-background">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="text-4xl font-bold tracking-tight sm:text-6xl text-foreground">
-            Certified Translations You Can Trust
+            Des Traductions Assermentées de Confiance
           </h1>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">
-            Get your documents officially translated by sworn experts recognized by French courts. Fast, secure, and fully online.
+            Faites traduire officiellement vos documents par des experts assermentés reconnus par les tribunaux français. Rapide, sécurisé et entièrement en ligne.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Button size="lg" asChild>
               <Link href="/auth/register">
-                Start Translation <ArrowRight className="ml-2 h-4 w-4" />
+                Commencer la Traduction <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link href="/pricing">View Pricing</Link>
+              <Link href="/pricing">Voir les Tarifs</Link>
             </Button>
           </div>
         </div>
@@ -31,27 +31,27 @@ export default function Home() {
       <section className="py-24 sm:py-32 bg-background">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-primary">Translation Simplified</h2>
+            <h2 className="text-base font-semibold leading-7 text-primary">La Traduction Simplifiée</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Everything you need for official translations
+              Tout ce dont vous avez besoin pour vos traductions officielles
             </p>
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
             <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3 lg:gap-y-16">
               {[
                 {
-                  name: 'Sworn Translators',
-                  description: 'All our translators are registered and recognized by official French jurisdictions.',
+                  name: 'Traducteurs Assermentés',
+                  description: 'Tous nos traducteurs sont inscrits et reconnus par les juridictions officielles françaises.',
                   icon: ShieldCheck,
                 },
                 {
-                  name: 'Instant Pricing',
-                  description: 'Upload your document and instantly see the transparent cost of your translation.',
+                  name: 'Tarification Instantanée',
+                  description: 'Téléchargez votre document et voyez instantanément le coût transparent de votre traduction.',
                   icon: FileCheck2,
                 },
                 {
-                  name: 'Multiple Languages',
-                  description: 'We support dozens of source and target languages to ensure your needs are met.',
+                  name: 'Multilingue',
+                  description: 'Nous prenons en charge des dizaines de langues source et cible pour répondre à vos besoins.',
                   icon: Globe,
                 },
               ].map((feature) => (

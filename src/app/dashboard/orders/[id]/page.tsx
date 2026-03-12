@@ -45,8 +45,8 @@ export default async function OrderDetailsPage({ params }: { params: { id: strin
         <div className="max-w-4xl mx-auto space-y-6">
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-3xl font-bold tracking-tight">Order Details</h1>
-                    <p className="text-muted-foreground">Detailed view of the translation request.</p>
+                    <h1 className="text-3xl font-bold tracking-tight">Détails de la Commande</h1>
+                    <p className="text-muted-foreground">Vue détaillée de la demande de traduction.</p>
                 </div>
                 <Badge variant={order.status === 'completed' ? 'default' : 'secondary'} className="text-base uppercase">
                     {order.status}
@@ -56,16 +56,16 @@ export default async function OrderDetailsPage({ params }: { params: { id: strin
             <div className="grid gap-6 md:grid-cols-2">
                 <Card>
                     <CardHeader>
-                        <CardTitle>Source Document</CardTitle>
-                        <CardDescription>Details about the requested translation.</CardDescription>
+                        <CardTitle>Document Source</CardTitle>
+                        <CardDescription>Détails sur la traduction demandée.</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div>
-                            <p className="text-sm font-medium text-muted-foreground">File Name</p>
+                            <p className="text-sm font-medium text-muted-foreground">Nom du Fichier</p>
                             <p className="text-base">{order.documents?.file_name}</p>
                         </div>
                         <div>
-                            <p className="text-sm font-medium text-muted-foreground">Languages</p>
+                            <p className="text-sm font-medium text-muted-foreground">Langues</p>
                             <p className="text-base">{order.source_language} → {order.target_language}</p>
                         </div>
                         <div>
@@ -80,7 +80,7 @@ export default async function OrderDetailsPage({ params }: { params: { id: strin
                     {role === 'translator' && (
                         <CardFooter>
                             <Button variant="outline" className="w-full">
-                                <Download className="mr-2 h-4 w-4" /> Download Original
+                                <Download className="mr-2 h-4 w-4" /> Télécharger l'Original
                             </Button>
                         </CardFooter>
                     )}
@@ -88,24 +88,24 @@ export default async function OrderDetailsPage({ params }: { params: { id: strin
 
                 <Card>
                     <CardHeader>
-                        <CardTitle>Translation Delivery</CardTitle>
-                        <CardDescription>Fulfillment status and delivery options.</CardDescription>
+                        <CardTitle>Livraison de la Traduction</CardTitle>
+                        <CardDescription>État d'avancement et options de livraison.</CardDescription>
                     </CardHeader>
                     <CardContent>
                         {order.status === 'completed' ? (
                             <div className="space-y-4">
                                 <div className="bg-green-50 text-green-700 p-4 rounded-md text-sm">
-                                    This translation has been completed and is ready for download.
+                                    Cette traduction est terminée et prête à être téléchargée.
                                 </div>
                                 <Button className="w-full">
-                                    <Download className="mr-2 h-4 w-4" /> Download Translation
+                                    <Download className="mr-2 h-4 w-4" /> Télécharger la Traduction
                                 </Button>
                             </div>
                         ) : role === 'translator' && order.translator_id === user.id ? (
                             <UploadTranslationForm orderId={order.id} />
                         ) : (
                             <div className="text-center py-8 text-muted-foreground text-sm">
-                                Translation is currently {order.status}.
+                                L'état actuel de la traduction est : {order.status}.
                             </div>
                         )}
                     </CardContent>

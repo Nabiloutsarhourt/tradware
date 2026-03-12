@@ -19,9 +19,9 @@ export default async function DashboardPage() {
     return (
         <div className="space-y-6">
             <div>
-                <h1 className="text-3xl font-bold tracking-tight">Welcome back, {profile?.full_name?.split(' ')[0] || 'User'}</h1>
+                <h1 className="text-3xl font-bold tracking-tight">Bienvenue, {profile?.full_name?.split(' ')[0] || 'Utilisateur'}</h1>
                 <p className="text-muted-foreground">
-                    Here is an overview of your activity.
+                    Voici un aperçu de votre activité.
                 </p>
             </div>
 
@@ -29,23 +29,23 @@ export default async function DashboardPage() {
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                     <Card>
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium">New Translation</CardTitle>
+                            <CardTitle className="text-sm font-medium">Nouvelle Traduction</CardTitle>
                             <FileUp className="h-4 w-4 text-muted-foreground" />
                         </CardHeader>
                         <CardContent>
                             <Button className="w-full mt-4" asChild>
-                                <Link href="/dashboard/new-order">Upload Document</Link>
+                                <Link href="/dashboard/new-order">Télécharger un Document</Link>
                             </Button>
                         </CardContent>
                     </Card>
 
                     <Card>
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium">Active Orders</CardTitle>
+                            <CardTitle className="text-sm font-medium">Commandes Actives</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <div className="text-2xl font-bold">0</div>
-                            <p className="text-xs text-muted-foreground">Orders currently in progress</p>
+                            <p className="text-xs text-muted-foreground">Commandes en cours</p>
                         </CardContent>
                     </Card>
                 </div>
@@ -55,11 +55,11 @@ export default async function DashboardPage() {
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                     <Card>
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium">Available Missions</CardTitle>
+                            <CardTitle className="text-sm font-medium">Missions Disponibles</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <div className="text-2xl font-bold">0</div>
-                            <p className="text-xs text-muted-foreground">Translations ready to be claimed</p>
+                            <p className="text-xs text-muted-foreground">Traductions prêtes à être acceptées</p>
                         </CardContent>
                     </Card>
                 </div>
@@ -69,11 +69,11 @@ export default async function DashboardPage() {
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                     <Card>
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
+                            <CardTitle className="text-sm font-medium">Revenu Total</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <div className="text-2xl font-bold">€0.00</div>
-                            <p className="text-xs text-muted-foreground">All time revenue</p>
+                            <div className="text-2xl font-bold">0,00 €</div>
+                            <p className="text-xs text-muted-foreground">Revenu global généré</p>
                         </CardContent>
                     </Card>
                 </div>

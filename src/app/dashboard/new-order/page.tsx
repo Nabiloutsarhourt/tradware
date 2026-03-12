@@ -39,48 +39,48 @@ export default function NewOrderPage() {
     return (
         <div className="max-w-2xl mx-auto space-y-6">
             <div>
-                <h1 className="text-3xl font-bold tracking-tight">New Translation Order</h1>
+                <h1 className="text-3xl font-bold tracking-tight">Nouvelle Commande de Traduction</h1>
                 <p className="text-muted-foreground">
-                    Upload your document and instantly calculate your translation cost.
+                    Téléchargez votre document et calculez instantanément le coût de votre traduction.
                 </p>
             </div>
 
             <Card>
                 <CardHeader>
-                    <CardTitle>Order Details</CardTitle>
-                    <CardDescription>All translations are processed securely.</CardDescription>
+                    <CardTitle>Détails de la Commande</CardTitle>
+                    <CardDescription>Toutes les traductions sont traitées de manière sécurisée.</CardDescription>
                 </CardHeader>
                 <CardContent>
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="space-y-2">
-                            <Label htmlFor="document">Document to Translate (PDF, JPG, PNG)</Label>
+                            <Label htmlFor="document">Document à Traduire (PDF, JPG, PNG)</Label>
                             <Input id="document" name="document" type="file" accept=".pdf,.png,.jpg,.jpeg" required />
                         </div>
 
                         <div className="grid grid-cols-2 gap-4">
                             <div className="space-y-2">
-                                <Label htmlFor="sourceLanguage">Source Language</Label>
-                                <Select name="sourceLanguage" defaultValue="English" required>
-                                    <SelectTrigger><SelectValue placeholder="Select language" /></SelectTrigger>
+                                <Label htmlFor="sourceLanguage">Langue Source</Label>
+                                <Select name="sourceLanguage" defaultValue="Anglais" required>
+                                    <SelectTrigger><SelectValue placeholder="Sélectionner une langue" /></SelectTrigger>
                                     <SelectContent>
-                                        <SelectItem value="English">English</SelectItem>
-                                        <SelectItem value="French">French</SelectItem>
-                                        <SelectItem value="Spanish">Spanish</SelectItem>
-                                        <SelectItem value="German">German</SelectItem>
-                                        <SelectItem value="Arabic">Arabic</SelectItem>
+                                        <SelectItem value="Anglais">Anglais</SelectItem>
+                                        <SelectItem value="Français">Français</SelectItem>
+                                        <SelectItem value="Espagnol">Espagnol</SelectItem>
+                                        <SelectItem value="Allemand">Allemand</SelectItem>
+                                        <SelectItem value="Arabe">Arabe</SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>
                             <div className="space-y-2">
-                                <Label htmlFor="targetLanguage">Target Language</Label>
-                                <Select name="targetLanguage" defaultValue="French" required>
-                                    <SelectTrigger><SelectValue placeholder="Select language" /></SelectTrigger>
+                                <Label htmlFor="targetLanguage">Langue Cible</Label>
+                                <Select name="targetLanguage" defaultValue="Français" required>
+                                    <SelectTrigger><SelectValue placeholder="Sélectionner une langue" /></SelectTrigger>
                                     <SelectContent>
-                                        <SelectItem value="English">English</SelectItem>
-                                        <SelectItem value="French">French</SelectItem>
-                                        <SelectItem value="Spanish">Spanish</SelectItem>
-                                        <SelectItem value="German">German</SelectItem>
-                                        <SelectItem value="Arabic">Arabic</SelectItem>
+                                        <SelectItem value="Anglais">Anglais</SelectItem>
+                                        <SelectItem value="Français">Français</SelectItem>
+                                        <SelectItem value="Espagnol">Espagnol</SelectItem>
+                                        <SelectItem value="Allemand">Allemand</SelectItem>
+                                        <SelectItem value="Arabe">Arabe</SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>
@@ -88,21 +88,21 @@ export default function NewOrderPage() {
 
                         <div className="grid grid-cols-2 gap-4">
                             <div className="space-y-2">
-                                <Label htmlFor="type">Translation Type</Label>
+                                <Label htmlFor="type">Type de Traduction</Label>
                                 <Select
                                     name="type"
                                     value={type}
                                     onValueChange={(val) => handleCalculatePrice(pages, val as string)}
                                 >
-                                    <SelectTrigger><SelectValue placeholder="Select type" /></SelectTrigger>
+                                    <SelectTrigger><SelectValue placeholder="Sélectionner un type" /></SelectTrigger>
                                     <SelectContent>
-                                        <SelectItem value="certified">Certified (Official)</SelectItem>
-                                        <SelectItem value="standard">Standard (Informal)</SelectItem>
+                                        <SelectItem value="certified">Assermentée (Officielle)</SelectItem>
+                                        <SelectItem value="standard">Standard (Informelle)</SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>
                             <div className="space-y-2">
-                                <Label htmlFor="pageCount">Estimated Pages</Label>
+                                <Label htmlFor="pageCount">Pages Estimées</Label>
                                 <Input
                                     id="pageCount"
                                     type="number"
@@ -116,8 +116,8 @@ export default function NewOrderPage() {
 
                         <div className="bg-muted p-4 rounded-lg flex items-center justify-between">
                             <div>
-                                <p className="font-semibold">Total Estimated Price</p>
-                                <p className="text-sm text-muted-foreground">Based on {pages} pages ({type} translation)</p>
+                                <p className="font-semibold">Prix Total Estimé</p>
+                                <p className="text-sm text-muted-foreground">Basé sur {pages} pages (Traduction {type === 'certified' ? 'Assermentée' : 'Standard'})</p>
                             </div>
                             <div className="text-2xl font-bold text-primary">
                                 €{price.toFixed(2)}
@@ -125,7 +125,7 @@ export default function NewOrderPage() {
                         </div>
 
                         <Button type="submit" className="w-full" disabled={isPending}>
-                            {isPending ? 'Processing...' : 'Confirm & Place Order'}
+                            {isPending ? 'Traitement en cours...' : 'Confirmer et Commander'}
                         </Button>
                     </form>
                 </CardContent>

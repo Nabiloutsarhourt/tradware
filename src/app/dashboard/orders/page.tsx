@@ -56,11 +56,11 @@ export default async function OrdersPage() {
 
     const getStatusBadge = (status: string) => {
         switch (status) {
-            case 'pending': return <Badge variant="secondary">Pending Assignment</Badge>
-            case 'assigned': return <Badge variant="default" className="bg-blue-500">Assigned</Badge>
-            case 'in_progress': return <Badge variant="default" className="bg-yellow-500">In Progress</Badge>
-            case 'completed': return <Badge variant="default" className="bg-green-500">Completed</Badge>
-            case 'cancelled': return <Badge variant="destructive">Cancelled</Badge>
+            case 'pending': return <Badge variant="secondary">En attente d'attribution</Badge>
+            case 'assigned': return <Badge variant="default" className="bg-blue-500">Attribuée</Badge>
+            case 'in_progress': return <Badge variant="default" className="bg-yellow-500">En cours</Badge>
+            case 'completed': return <Badge variant="default" className="bg-green-500">Terminée</Badge>
+            case 'cancelled': return <Badge variant="destructive">Annulée</Badge>
             default: return <Badge variant="outline">{status}</Badge>
         }
     }
@@ -69,10 +69,10 @@ export default async function OrdersPage() {
         <div className="space-y-6">
             <div>
                 <h1 className="text-3xl font-bold tracking-tight">
-                    {role === 'translator' ? 'My Missions' : 'My Orders'}
+                    {role === 'translator' ? 'Mes Missions' : 'Mes Commandes'}
                 </h1>
                 <p className="text-muted-foreground">
-                    View and track the status of your translation orders.
+                    Consultez et suivez l'état de vos commandes de traduction.
                 </p>
             </div>
 
@@ -80,7 +80,7 @@ export default async function OrdersPage() {
                 {orders.length === 0 ? (
                     <Card>
                         <CardContent className="py-10 text-center">
-                            <p className="text-muted-foreground">You don&apos;t have any orders yet.</p>
+                            <p className="text-muted-foreground">Vous n'avez pas encore de commandes.</p>
                         </CardContent>
                     </Card>
                 ) : (
@@ -97,7 +97,7 @@ export default async function OrdersPage() {
                                         {order.source_language} to {order.target_language}
                                     </p>
                                     <p className="text-xs text-muted-foreground">
-                                        Ordered on {new Date(order.created_at).toLocaleDateString()}
+                                        Commandé le {new Date(order.created_at).toLocaleDateString('fr-FR')}
                                     </p>
                                 </div>
 
@@ -107,11 +107,11 @@ export default async function OrdersPage() {
                                     </div>
                                     {order.status === 'completed' ? (
                                         <Button variant="outline" size="sm">
-                                            <Download className="mr-2 h-4 w-4" /> Download
+                                            <Download className="mr-2 h-4 w-4" /> Télécharger
                                         </Button>
                                     ) : (
                                         <Button variant="secondary" size="sm">
-                                            <Eye className="mr-2 h-4 w-4" /> View Details
+                                            <Eye className="mr-2 h-4 w-4" /> Voir les détails
                                         </Button>
                                     )}
                                 </div>

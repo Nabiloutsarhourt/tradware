@@ -40,11 +40,11 @@ export default async function AdminOrdersPage() {
 
     const getStatusBadge = (status: string) => {
         switch (status) {
-            case 'pending': return <Badge variant="secondary">Pending Assignment</Badge>
-            case 'assigned': return <Badge variant="default" className="bg-blue-500">Assigned</Badge>
-            case 'in_progress': return <Badge variant="default" className="bg-yellow-500">In Progress</Badge>
-            case 'completed': return <Badge variant="default" className="bg-green-500">Completed</Badge>
-            case 'cancelled': return <Badge variant="destructive">Cancelled</Badge>
+            case 'pending': return <Badge variant="secondary">En attente d'attribution</Badge>
+            case 'assigned': return <Badge variant="default" className="bg-blue-500">Attribuée</Badge>
+            case 'in_progress': return <Badge variant="default" className="bg-yellow-500">En cours</Badge>
+            case 'completed': return <Badge variant="default" className="bg-green-500">Terminée</Badge>
+            case 'cancelled': return <Badge variant="destructive">Annulée</Badge>
             default: return <Badge variant="outline">{status}</Badge>
         }
     }
@@ -52,9 +52,9 @@ export default async function AdminOrdersPage() {
     return (
         <div className="space-y-6">
             <div>
-                <h1 className="text-3xl font-bold tracking-tight">Order Management</h1>
+                <h1 className="text-3xl font-bold tracking-tight">Gestion des Commandes</h1>
                 <p className="text-muted-foreground">
-                    Monitor all platform translation orders.
+                    Supervisez toutes les commandes de traduction de la plateforme.
                 </p>
             </div>
 
@@ -62,7 +62,7 @@ export default async function AdminOrdersPage() {
                 {orderList.length === 0 ? (
                     <Card>
                         <CardContent className="py-10 text-center">
-                            <p className="text-muted-foreground">No orders placed yet.</p>
+                            <p className="text-muted-foreground">Aucune commande passée pour le moment.</p>
                         </CardContent>
                     </Card>
                 ) : (
@@ -77,28 +77,28 @@ export default async function AdminOrdersPage() {
                                     </div>
                                     <div className="text-sm text-muted-foreground grid grid-cols-2 gap-4">
                                         <div>
-                                            <span className="font-medium text-foreground">Client:</span> {order.client?.full_name}
+                                            <span className="font-medium text-foreground">Client :</span> {order.client?.full_name}
                                         </div>
                                         <div>
-                                            <span className="font-medium text-foreground">Languages:</span> {order.source_language} to {order.target_language}
+                                            <span className="font-medium text-foreground">Langues :</span> {order.source_language} vers {order.target_language}
                                         </div>
                                         <div>
-                                            <span className="font-medium text-foreground">Date:</span> {new Date(order.created_at).toLocaleDateString()}
+                                            <span className="font-medium text-foreground">Date :</span> {new Date(order.created_at).toLocaleDateString('fr-FR')}
                                         </div>
                                         <div>
-                                            <span className="font-medium text-foreground">Translator ID:</span> {order.translator?.id || 'Unassigned'}
+                                            <span className="font-medium text-foreground">ID Traducteur :</span> {order.translator?.id || 'Non attribué'}
                                         </div>
                                     </div>
                                 </div>
 
                                 <div className="mt-4 md:mt-0 flex flex-col items-end space-y-2">
                                     <div className="text-right">
-                                        <p className="font-bold text-lg">€{order.price}</p>
+                                        <p className="font-bold text-lg">{order.price} €</p>
                                         <p className="text-xs text-muted-foreground">{order.documents?.page_count} pages</p>
                                     </div>
                                     <Button variant="secondary" size="sm" asChild>
                                         <Link href={`/dashboard/orders/${order.id}`}>
-                                            <Eye className="mr-2 h-4 w-4" /> View Details
+                                            <Eye className="mr-2 h-4 w-4" /> Voir les détails
                                         </Link>
                                     </Button>
                                 </div>

@@ -8,8 +8,8 @@ import { ThemeProvider } from '@/components/theme-provider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'TradWare | Sworn Translation Services',
-  description: 'Certified document translation by sworn translators recognized by French courts.',
+  title: 'TradWare | Services de Traduction Assermentée',
+  description: 'Traduction certifiée de documents par des traducteurs assermentés reconnus par les tribunaux français.',
 }
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="fr" className="h-full antialiased">
       <body className={`${inter.className} flex min-h-full flex-col`}>
         <ThemeProvider
           attribute="class"

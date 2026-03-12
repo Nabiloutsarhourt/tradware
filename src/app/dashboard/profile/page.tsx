@@ -28,21 +28,21 @@ export default async function ProfilePage() {
     return (
         <div className="max-w-3xl mx-auto space-y-6">
             <div>
-                <h1 className="text-3xl font-bold tracking-tight">Profile Settings</h1>
+                <h1 className="text-3xl font-bold tracking-tight">Paramètres du Profil</h1>
                 <p className="text-muted-foreground">
-                    Manage your account settings and preferences.
+                    Gérez les paramètres et préférences de votre compte.
                 </p>
             </div>
 
             <Card>
                 <CardHeader>
-                    <CardTitle>Personal Information</CardTitle>
-                    <CardDescription>Basic info about your account.</CardDescription>
+                    <CardTitle>Informations Personnelles</CardTitle>
+                    <CardDescription>Informations de base concernant votre compte.</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
                         <div>
-                            <p className="text-sm font-medium text-muted-foreground">Full Name</p>
+                            <p className="text-sm font-medium text-muted-foreground">Nom Complet</p>
                             <p className="text-base">{profile?.full_name}</p>
                         </div>
                         <div>
@@ -50,8 +50,8 @@ export default async function ProfilePage() {
                             <p className="text-base">{profile?.email}</p>
                         </div>
                         <div>
-                            <p className="text-sm font-medium text-muted-foreground">Role</p>
-                            <Badge variant="outline" className="capitalize">{role}</Badge>
+                            <p className="text-sm font-medium text-muted-foreground">Rôle</p>
+                            <Badge variant="outline" className="capitalize">{role === 'translator' ? 'Traducteur' : role === 'client' ? 'Client' : 'Admin'}</Badge>
                         </div>
                     </div>
                 </CardContent>
@@ -62,11 +62,11 @@ export default async function ProfilePage() {
                     <CardHeader>
                         <div className="flex items-center justify-between">
                             <div>
-                                <CardTitle>Translator Credentials</CardTitle>
-                                <CardDescription>Manage your languages and official certifications.</CardDescription>
+                                <CardTitle>Informations du Traducteur</CardTitle>
+                                <CardDescription>Gérez vos langues et certifications officielles.</CardDescription>
                             </div>
                             <Badge variant={translatorData?.is_verified ? "default" : "secondary"}>
-                                {translatorData?.is_verified ? "Verified Sworn Translator" : "Pending Verification"}
+                                {translatorData?.is_verified ? "Traducteur Assermenté Vérifié" : "En attente de vérification"}
                             </Badge>
                         </div>
                     </CardHeader>

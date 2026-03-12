@@ -21,11 +21,11 @@ export default function UploadTranslationForm({ orderId }: { orderId: string }) 
             if (res.error) {
                 setMessage(res.error)
             } else {
-                setMessage('Translation uploaded successfully.')
+                setMessage('Traduction téléchargée avec succès.')
             }
         } catch (err) {
             console.error(err)
-            setMessage('An error occurred.')
+            setMessage('Une erreur est survenue.')
         } finally {
             setIsPending(false)
         }
@@ -54,7 +54,7 @@ export default function UploadTranslationForm({ orderId }: { orderId: string }) 
             )}
 
             <Button type="submit" disabled={isPending} className="w-full">
-                {isPending ? 'Uploading...' : 'Submit Translation'}
+                {isPending ? 'Téléchargement...' : 'Soumettre la Traduction'}
             </Button>
         </form>
     )

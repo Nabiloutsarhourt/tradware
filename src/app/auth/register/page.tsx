@@ -16,37 +16,37 @@ export default function RegisterPage() {
         <div className="flex min-h-screen items-center justify-center bg-muted/30 px-4 py-12">
             <Card className="w-full max-w-md">
                 <CardHeader className="space-y-1">
-                    <CardTitle className="text-2xl font-bold text-center">Create an account</CardTitle>
+                    <CardTitle className="text-2xl font-bold text-center">Créer un compte</CardTitle>
                     <CardDescription className="text-center">
-                        Enter your information to register for TradWare
+                        Entrez vos informations pour vous inscrire sur TradWare
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
                     <form action={formAction} className="space-y-4">
                         <div className="space-y-2">
-                            <Label htmlFor="fullName">Full Name</Label>
-                            <Input id="fullName" name="fullName" placeholder="John Doe" required />
+                            <Label htmlFor="fullName">Nom Complet</Label>
+                            <Input id="fullName" name="fullName" placeholder="Jean Dupont" required />
                         </div>
 
                         <div className="space-y-2">
                             <Label htmlFor="email">Email</Label>
-                            <Input id="email" name="email" type="email" placeholder="m@example.com" required />
+                            <Input id="email" name="email" type="email" placeholder="nom@exemple.com" required />
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="password">Password</Label>
+                            <Label htmlFor="password">Mot de passe</Label>
                             <Input id="password" name="password" type="password" required minLength={6} />
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="role">Account Type</Label>
+                            <Label htmlFor="role">Type de compte</Label>
                             <Select name="role" defaultValue="client">
                                 <SelectTrigger>
-                                    <SelectValue placeholder="Select account type" />
+                                    <SelectValue placeholder="Sélectionnez le type de compte" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value="client">Client (Need a translation)</SelectItem>
-                                    <SelectItem value="translator">Translator (I provide translations)</SelectItem>
+                                    <SelectItem value="client">Client (J'ai besoin d'une traduction)</SelectItem>
+                                    <SelectItem value="translator">Traducteur (Je fournis des traductions)</SelectItem>
                                 </SelectContent>
                             </Select>
                         </div>
@@ -56,15 +56,15 @@ export default function RegisterPage() {
                         )}
 
                         <Button type="submit" className="w-full mt-4" disabled={isPending}>
-                            {isPending ? 'Creating account...' : 'Create Account'}
+                            {isPending ? 'Création en cours...' : 'Créer le Compte'}
                         </Button>
                     </form>
                 </CardContent>
                 <CardFooter className="flex flex-col space-y-2">
                     <div className="text-center text-sm text-muted-foreground">
-                        Already have an account?{' '}
+                        Vous avez déjà un compte ?{' '}
                         <Link href="/auth/login" className="font-medium text-primary hover:underline">
-                            Login
+                            Se connecter
                         </Link>
                     </div>
                 </CardFooter>

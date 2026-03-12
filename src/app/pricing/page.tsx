@@ -6,32 +6,32 @@ import Link from 'next/link'
 export default function PricingPage() {
     const plans = [
         {
-            name: 'Standard Translation',
-            price: '€20',
-            description: 'Perfect for informational documents, manuals, and letters.',
+            name: 'Traduction Standard',
+            price: '20 €',
+            description: 'Parfait pour les documents d\'information, les manuels et les lettres.',
             features: [
-                'Professional native translators',
-                '24-48 hour delivery in most cases',
-                'Multiple revisions',
-                'Direct chat with translator',
+                'Traducteurs professionnels natifs',
+                'Livraison en 24-48 heures en général',
+                'Plusieurs révisions incluses',
+                'Chat direct avec le traducteur',
             ],
             href: '/auth/register',
-            cta: 'Get Started',
+            cta: 'Commencer',
             popular: false,
         },
         {
-            name: 'Certified Translation',
-            price: '€50',
-            description: 'Officially recognized by French courts, administrations & universities.',
+            name: 'Traduction Assermentée',
+            price: '50 €',
+            description: 'Officiellement reconnue par les tribunaux, administrations et universités.',
             features: [
-                'Sworn translator assigned',
-                'Official stamp and signature',
-                'Accepted by all French authorities',
-                'Free digital PDF delivery',
-                'Optional physical copy delivery',
+                'Traducteur assermenté assigné',
+                'Tampon et signature officiels',
+                'Acceptée par toutes les autorités françaises',
+                'Livraison numérique gratuite (PDF)',
+                'Livraison papier en option',
             ],
             href: '/auth/register',
-            cta: 'Order Certified Translation',
+            cta: 'Commander une traduction certifiée',
             popular: true,
         },
     ]
@@ -40,20 +40,20 @@ export default function PricingPage() {
         <div className="bg-background py-24 sm:py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-4xl text-center">
-                    <h2 className="text-base font-semibold leading-7 text-primary">Pricing</h2>
+                    <h2 className="text-base font-semibold leading-7 text-primary">Tarifs</h2>
                     <p className="mt-2 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-                        Simple, transparent pricing per page.
+                        Une tarification simple et transparente à la page.
                     </p>
                 </div>
                 <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-muted-foreground">
-                    No hidden fees. Create an account, upload your document, and instantly see the final price.
+                    Aucun frais caché. Créez un compte, téléchargez votre document et découvrez instantanément le prix final.
                 </p>
                 <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-y-6 sm:mt-20 lg:max-w-4xl lg:grid-cols-2 lg:gap-x-8">
                     {plans.map((plan) => (
                         <Card key={plan.name} className={`flex flex-col justify-between ${plan.popular ? 'border-primary shadow-lg ring-1 ring-primary' : ''}`}>
                             <CardHeader>
                                 {plan.popular && (
-                                    <p className="mb-4 text-xs font-semibold leading-5 text-primary">MOST POPULAR</p>
+                                    <p className="mb-4 text-xs font-semibold leading-5 text-primary">LE PLUS POPULAIRE</p>
                                 )}
                                 <CardTitle className="text-2xl">{plan.name}</CardTitle>
                                 <CardDescription className="mt-2">{plan.description}</CardDescription>

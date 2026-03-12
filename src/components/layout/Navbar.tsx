@@ -23,10 +23,10 @@ export default async function Navbar() {
                                 Services
                             </Link>
                             <Link href="/pricing" className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-md text-sm font-medium">
-                                Pricing
+                                Tarifs
                             </Link>
                             <Link href="/translators" className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-md text-sm font-medium">
-                                For Translators
+                                Pour les Traducteurs
                             </Link>
                         </div>
                     </div>
@@ -34,15 +34,15 @@ export default async function Navbar() {
                     <div className="hidden md:flex items-center space-x-4">
                         {user ? (
                             <Button asChild variant="default">
-                                <Link href="/dashboard">Dashboard</Link>
+                                <Link href="/dashboard">Tableau de bord</Link>
                             </Button>
                         ) : (
                             <>
                                 <Button asChild variant="ghost">
-                                    <Link href="/auth/login">Login</Link>
+                                    <Link href="/auth/login">Connexion</Link>
                                 </Button>
                                 <Button asChild variant="default">
-                                    <Link href="/auth/register">Get Started</Link>
+                                    <Link href="/auth/register">S'inscrire</Link>
                                 </Button>
                             </>
                         )}

@@ -15,22 +15,22 @@ export default function LoginPage() {
         <div className="flex min-h-screen items-center justify-center bg-muted/30 px-4">
             <Card className="w-full max-w-sm">
                 <CardHeader className="space-y-1">
-                    <CardTitle className="text-2xl font-bold text-center">Login</CardTitle>
+                    <CardTitle className="text-2xl font-bold text-center">Connexion</CardTitle>
                     <CardDescription className="text-center">
-                        Enter your email and password to login to your account
+                        Entrez votre email et votre mot de passe pour vous connecter
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
                     <form action={formAction} className="space-y-4">
                         <div className="space-y-2">
                             <Label htmlFor="email">Email</Label>
-                            <Input id="email" name="email" type="email" placeholder="m@example.com" required />
+                            <Input id="email" name="email" type="email" placeholder="nom@exemple.com" required />
                         </div>
                         <div className="space-y-2">
                             <div className="flex items-center justify-between">
-                                <Label htmlFor="password">Password</Label>
+                                <Label htmlFor="password">Mot de passe</Label>
                                 <Link href="/auth/forgot-password" className="text-sm font-medium text-primary hover:underline">
-                                    Forgot password?
+                                    Mot de passe oublié ?
                                 </Link>
                             </div>
                             <Input id="password" name="password" type="password" required />
@@ -39,15 +39,15 @@ export default function LoginPage() {
                             <div className="text-sm font-medium text-destructive">{state.error}</div>
                         )}
                         <Button type="submit" className="w-full" disabled={isPending}>
-                            {isPending ? 'Logging in...' : 'Login'}
+                            {isPending ? 'Connexion en cours...' : 'Se connecter'}
                         </Button>
                     </form>
                 </CardContent>
                 <CardFooter className="flex flex-col space-y-2">
                     <div className="text-center text-sm text-muted-foreground">
-                        Don&apos;t have an account?{' '}
+                        Vous n'avez pas de compte ?{' '}
                         <Link href="/auth/register" className="font-medium text-primary hover:underline">
-                            Register
+                            S'inscrire
                         </Link>
                     </div>
                 </CardFooter>
