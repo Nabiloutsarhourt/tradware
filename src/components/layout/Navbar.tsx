@@ -22,6 +22,9 @@ export default async function Navbar() {
                             <Link href="/services" className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-md text-sm font-medium">
                                 Services
                             </Link>
+                            <Link href="/search" className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-md text-sm font-medium">
+                                Rechercher
+                            </Link>
                             <Link href="/pricing" className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-md text-sm font-medium">
                                 Tarifs
                             </Link>
