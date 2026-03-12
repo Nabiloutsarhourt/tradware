@@ -11,6 +11,7 @@ const MapContent = dynamic(
     }
 )
 
-export default function TranslatorMap(props: any) {
-    return <MapContent {...props} />
+export default function TranslatorMap({ translators }: { translators: Record<string, unknown>[] }) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return <MapContent translators={translators as any} />
 }

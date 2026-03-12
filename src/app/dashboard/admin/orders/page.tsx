@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Eye } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -40,7 +40,7 @@ export default async function AdminOrdersPage() {
 
     const getStatusBadge = (status: string) => {
         switch (status) {
-            case 'pending': return <Badge variant="secondary">En attente d'attribution</Badge>
+            case 'pending': return <Badge variant="secondary">En attente d&apos;attribution</Badge>
             case 'assigned': return <Badge variant="default" className="bg-blue-500">Attribuée</Badge>
             case 'in_progress': return <Badge variant="default" className="bg-yellow-500">En cours</Badge>
             case 'completed': return <Badge variant="default" className="bg-green-500">Terminée</Badge>
@@ -66,6 +66,7 @@ export default async function AdminOrdersPage() {
                         </CardContent>
                     </Card>
                 ) : (
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     orderList.map((order: any) => (
                         <Card key={order.id} className="overflow-hidden">
                             <div className="flex flex-col md:flex-row md:items-center justify-between p-6">

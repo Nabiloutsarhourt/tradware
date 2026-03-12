@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Download, Eye } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -16,6 +16,7 @@ export default async function OrdersPage() {
 
     const role = profile?.role || 'client'
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let orders: any[] = []
 
     if (role === 'client') {
@@ -56,7 +57,7 @@ export default async function OrdersPage() {
 
     const getStatusBadge = (status: string) => {
         switch (status) {
-            case 'pending': return <Badge variant="secondary">En attente d'attribution</Badge>
+            case 'pending': return <Badge variant="secondary">En attente d&apos;attribution</Badge>
             case 'assigned': return <Badge variant="default" className="bg-blue-500">Attribuée</Badge>
             case 'in_progress': return <Badge variant="default" className="bg-yellow-500">En cours</Badge>
             case 'completed': return <Badge variant="default" className="bg-green-500">Terminée</Badge>
@@ -72,7 +73,7 @@ export default async function OrdersPage() {
                     {role === 'translator' ? 'Mes Missions' : 'Mes Commandes'}
                 </h1>
                 <p className="text-muted-foreground">
-                    Consultez et suivez l'état de vos commandes de traduction.
+                    Consultez et suivez l&apos;état de vos commandes de traduction.
                 </p>
             </div>
 
@@ -80,10 +81,11 @@ export default async function OrdersPage() {
                 {orders.length === 0 ? (
                     <Card>
                         <CardContent className="py-10 text-center">
-                            <p className="text-muted-foreground">Vous n'avez pas encore de commandes.</p>
+                            <p className="text-muted-foreground">Vous n&apos;avez pas encore de commandes.</p>
                         </CardContent>
                     </Card>
                 ) : (
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     orders.map((order: any) => (
                         <Card key={order.id} className="overflow-hidden">
                             <div className="flex flex-col md:flex-row md:items-center justify-between p-6">

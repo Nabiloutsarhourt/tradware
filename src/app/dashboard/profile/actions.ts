@@ -15,6 +15,17 @@ export async function updateTranslatorProfile(formData: FormData) {
     const languages = languagesRaw ? languagesRaw.split(',').map(l => l.trim()) : []
     const certificationFile = formData.get('certification') as File | null
 
+    const pricePerPageRaw = formData.get('price_per_page')
+    const pricePerPage = pricePerPageRaw ? parseFloat(pricePerPageRaw as string) : null
+
+    const address = formData.get('address') as string | null
+
+    const latRaw = formData.get('latitude')
+    const latitude = latRaw ? parseFloat(latRaw as string) : null
+
+    const lngRaw = formData.get('longitude')
+    const longitude = lngRaw ? parseFloat(lngRaw as string) : null
+
     let certificationUrl = null
 
     if (certificationFile && certificationFile.size > 0) {
@@ -37,10 +48,15 @@ export async function updateTranslatorProfile(formData: FormData) {
         .eq('id', user.id)
         .single()
 
-    const updates: any = {
+    const updates: Record<string, unknown> = {
         id: user.id,
         languages_spoken: languages,
     }
+
+    if (pricePerPage !== null && !isNaN(pricePerPage)) updates.price_per_page = pricePerPage
+    if (address) updates.address = address
+    if (latitude !== null && !isNaN(latitude)) updates.latitude = latitude
+    if (longitude !== null && !isNaN(longitude)) updates.longitude = longitude
 
     if (certificationUrl) {
         updates.certification_url = certificationUrl

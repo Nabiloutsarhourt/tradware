@@ -55,6 +55,7 @@ export default async function AvailableMissionsPage() {
                         </CardContent>
                     </Card>
                 ) : (
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     availableMissions.map((mission: any) => (
                         <Card key={mission.id} className="flex flex-col">
                             <CardHeader>

@@ -45,9 +45,9 @@ export default function LoginPage() {
                 </CardContent>
                 <CardFooter className="flex flex-col space-y-2">
                     <div className="text-center text-sm text-muted-foreground">
-                        Vous n'avez pas de compte ?{' '}
+                        Vous n&apos;avez pas de compte ?{' '}
                         <Link href="/auth/register" className="font-medium text-primary hover:underline">
-                            S'inscrire
+                            S&apos;inscrire
                         </Link>
                     </div>
                 </CardFooter>

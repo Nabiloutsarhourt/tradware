@@ -45,7 +45,7 @@ export default function RegisterPage() {
                                     <SelectValue placeholder="Sélectionnez le type de compte" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value="client">Client (J'ai besoin d'une traduction)</SelectItem>
+                                    <SelectItem value="client">Client (J&apos;ai besoin d&apos;une traduction)</SelectItem>
                                     <SelectItem value="translator">Traducteur (Je fournis des traductions)</SelectItem>
                                 </SelectContent>
                             </Select>

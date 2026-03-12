@@ -27,15 +27,19 @@ export default async function SearchPage() {
         .eq('is_verified', true)
 
     // Transform the data to match the expected props for MapContent
-    const formattedTranslators = translators?.map((t: any) => ({
-        id: t.id,
-        full_name: t.users?.full_name || 'Traducteur Anonyme',
-        languages_spoken: t.languages_spoken,
-        price_per_page: t.price_per_page,
-        latitude: t.latitude,
-        longitude: t.longitude,
-        address: t.address
-    })) || []
+    type SupabaseTranslator = { id: string; languages_spoken: string[]; price_per_page: number; latitude: number; longitude: number; address: string; users: { full_name: string } | { full_name: string }[] | null };
+    const formattedTranslators = translators?.map((t: SupabaseTranslator) => {
+        const userName = Array.isArray(t.users) ? t.users[0]?.full_name : t.users?.full_name;
+        return {
+            id: t.id,
+            full_name: userName || 'Traducteur Anonyme',
+            languages_spoken: t.languages_spoken,
+            price_per_page: t.price_per_page,
+            latitude: t.latitude,
+            longitude: t.longitude,
+            address: t.address
+        }
+    }) || []
 
     return (
         <div className="flex flex-col h-[calc(100vh-4rem)]">

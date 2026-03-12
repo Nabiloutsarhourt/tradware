@@ -45,7 +45,7 @@ export default async function Navbar() {
                                     <Link href="/auth/login">Connexion</Link>
                                 </Button>
                                 <Button asChild variant="default">
-                                    <Link href="/auth/register">S'inscrire</Link>
+                                    <Link href="/auth/register">S&apos;inscrire</Link>
                                 </Button>
                             </>
                         )}

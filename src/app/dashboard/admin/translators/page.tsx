@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { CheckCircle, XCircle } from 'lucide-react'
@@ -39,7 +39,7 @@ export default async function AdminTranslatorsPage() {
             <div>
                 <h1 className="text-3xl font-bold tracking-tight">Gérer les Traducteurs</h1>
                 <p className="text-muted-foreground">
-                    Examinez les informations d'identification et approuvez les traducteurs assermentés.
+                    Examinez les informations d&apos;identification et approuvez les traducteurs assermentés.
                 </p>
             </div>
 
@@ -51,6 +51,7 @@ export default async function AdminTranslatorsPage() {
                         </CardContent>
                     </Card>
                 ) : (
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     translatorList.map((t: any) => (
                         <Card key={t.id} className="flex flex-col md:flex-row md:items-center justify-between p-6">
                             <div className="space-y-1">

@@ -80,7 +80,7 @@ export default async function OrderDetailsPage({ params }: { params: { id: strin
                     {role === 'translator' && (
                         <CardFooter>
                             <Button variant="outline" className="w-full">
-                                <Download className="mr-2 h-4 w-4" /> Télécharger l'Original
+                                <Download className="mr-2 h-4 w-4" /> Télécharger l&apos;Original
                             </Button>
                         </CardFooter>
                     )}
@@ -89,7 +89,7 @@ export default async function OrderDetailsPage({ params }: { params: { id: strin
                 <Card>
                     <CardHeader>
                         <CardTitle>Livraison de la Traduction</CardTitle>
-                        <CardDescription>État d'avancement et options de livraison.</CardDescription>
+                        <CardDescription>État d&apos;avancement et options de livraison.</CardDescription>
                     </CardHeader>
                     <CardContent>
                         {order.status === 'completed' ? (
@@ -105,7 +105,7 @@ export default async function OrderDetailsPage({ params }: { params: { id: strin
                             <UploadTranslationForm orderId={order.id} />
                         ) : (
                             <div className="text-center py-8 text-muted-foreground text-sm">
-                                L'état actuel de la traduction est : {order.status}.
+                                L&apos;état actuel de la traduction est : {order.status}.
                             </div>
                         )}
                     </CardContent>
