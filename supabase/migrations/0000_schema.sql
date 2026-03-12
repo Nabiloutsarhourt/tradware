@@ -77,7 +77,7 @@ create policy "Admins can manage all orders" on public.translation_orders for al
 );
 
 create policy "Translators can view assigned documents" on public.documents for select using (
-  exists (select order_id from translation_orders where translation_orders.document_id = public.documents.id and translator_id = auth.uid())
+  exists (select id from translation_orders where translation_orders.document_id = public.documents.id and translator_id = auth.uid())
 );
 
 -- PAYMENTS TABLE
